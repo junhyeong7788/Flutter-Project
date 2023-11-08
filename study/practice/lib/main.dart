@@ -11,21 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( title: const Text('Hello World')),
-        body: Text('Hello World'),
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: 70,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                Icon(Icons.phone),
-                Icon(Icons.message),
-                Icon(Icons.contact_page),
-              ]
-            )
-          )
-      )
+        appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
+        body: Container( //중단에 넣을 위젯
+          width: 150, height: 150, color: Colors.red,
+          padding: EdgeInsets.fromLTRB(10, 1, 10, 10),
+          child: const Text('Hello World'),
+        )
       ),
     );
   }
