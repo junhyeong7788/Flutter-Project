@@ -10,8 +10,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Center(
-        child: Container(width:50, height:50, color: Colors.red),
+      home: Scaffold(
+        appBar: AppBar( title: const Text('Hello World')),
+        body: Text('Hello World'),
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            height: 70,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Icon(Icons.phone),
+                Icon(Icons.message),
+                Icon(Icons.contact_page),
+              ]
+            )
+          )
+      )
       ),
     );
   }
