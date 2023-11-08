@@ -1,6 +1,6 @@
 # practice
 
-A new Flutter study project.
+A new Flutter study project.   
 I will build contact applications.
 
 ## Getting Started
