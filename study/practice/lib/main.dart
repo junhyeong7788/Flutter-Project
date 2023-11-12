@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         body: Align(
           alignment: Alignment.bottomCenter, //하단 박스 정렬
           child: Container(
-            width: 50, height: 50, color: Colors.red,
+            width: double.infinity, height: 50, color: Colors.red,
             ),
         ),
       ),
