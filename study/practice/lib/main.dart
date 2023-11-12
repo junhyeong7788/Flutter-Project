@@ -11,14 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
-        body: SizedBox(
-          child: ElevatedButton( //버튼 생성
-            child: Text('Hello World!'),
-            onPressed: (){},
-            style: ButtonStyle( backgroundColor: MaterialStateProperty.all(Colors.blue)),
-          )
-        ),
+        appBar: AppBar(),
+        body: Row(
+          children: [
+            Flexible(child: Container(color: Colors.blue), flex: 3),
+            Flexible(child: Container(color: Colors.green), flex: 7),
+          ], //Flexible : row랑 column 안에 비율로 나누는 레이아웃
+        )
       ),
     );
   }
