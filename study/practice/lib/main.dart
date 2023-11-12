@@ -13,8 +13,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
         body: Container(
-          width: 50, height: 50, color: Colors.red,
-          margin: EdgeInsets.fromLTRB(10, 10, 10, 10), //상하좌우 개별 마진
+          width: 50, height: 50,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black), //박스에 테두리 주는 법
+          ),
           ),
       ),
     );
