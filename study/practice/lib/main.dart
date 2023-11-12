@@ -13,9 +13,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
         body: SizedBox(
-          child: Text('Hello World!',
-            style: TextStyle( fontWeight: FontWeight.w700 ), //폰트 굵기
-          ),
+          child: ElevatedButton( //버튼 생성
+            child: Text('Hello World!'),
+            onPressed: (){},
+            style: ButtonStyle( backgroundColor: MaterialStateProperty.all(Colors.blue)),
+          )
         ),
       ),
     );
