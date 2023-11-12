@@ -1,6 +1,7 @@
 # market
 
-A new Flutter project.
+A new Flutter study assignment project.
+1. Create a buttombar design project 
 
 ## Getting Started
 
