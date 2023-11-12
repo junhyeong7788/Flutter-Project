@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
         body: Container(
           width: 50, height: 50, color: Colors.red,
-          padding: EdgeInsets.all(10), //텍스트에 여백을 줌
-          child: Text('ddd')
+          margin: EdgeInsets.fromLTRB(10, 10, 10, 10), //상하좌우 개별 마진
           ),
       ),
     );
