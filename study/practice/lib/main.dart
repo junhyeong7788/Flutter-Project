@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
         body: SizedBox(
           child: Text('Hello World!',
-            style: TextStyle(color: Colors.blue),
+            style: TextStyle( fontWeight: FontWeight.w700 ), //폰트 굵기
           ),
         ),
       ),
