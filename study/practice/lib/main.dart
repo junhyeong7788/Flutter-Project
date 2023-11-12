@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(),
         body: Row(
           children: [
-            Flexible(child: Container(color: Colors.blue), flex: 3),
-            Flexible(child: Container(color: Colors.green), flex: 7),
-          ], //Flexible : row랑 column 안에 비율로 나누는 레이아웃
+            Expanded(child: Container(color: Colors.blue)),
+            Container(width: 100, color: Colors.green),
+          ], //Expanded : 박스 하나 넓게 채울때 사용
         )
       ),
     );
