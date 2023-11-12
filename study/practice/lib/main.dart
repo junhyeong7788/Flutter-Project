@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( title: const Text('Hello World')), //상단에 넣을 위젯
-        body: Align(
-          alignment: Alignment.bottomCenter, //하단 박스 정렬
-          child: Container(
-            width: double.infinity, height: 50, color: Colors.red,
-            ),
+        body: SizedBox(
+          child: Text('Hello World!',
+            style: TextStyle(color: Colors.blue),
+          ),
         ),
       ),
     );
