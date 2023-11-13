@@ -12,22 +12,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: ListView(
-          children: [
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-          ],
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (c, i){
+            return Text('Hello');
+          },
         )
       ),
     );
   }
 }
 
-//ListView : 스크롤바 자동생성, 스크롤 위치감시가능, 메모리절약기능
+//ListView.bilder() : 자동으로 반복해주는 함수
+//itemBuilder(context, index) : 각각의 아이템을 표현하는 함수
 
