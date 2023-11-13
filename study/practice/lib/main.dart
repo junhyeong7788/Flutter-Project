@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp()); //앱 시작 코드
+  runApp(MyApp()); //앱 시작 코드
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key}); //stless 명령어 : 메인 페이지 셋팅
+  MyApp({super.key}); //stless 명령어 : 메인 페이지 셋팅
+
+  var a = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Text('Add'),
+          onPressed: (){
+            print(a);
+            a++;
+          },
+        ),
         appBar: AppBar(),
         body: ListView.builder(
           itemCount: 10,
