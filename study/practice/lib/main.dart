@@ -4,6 +4,11 @@ void main() {
   runApp(const MyApp()); //앱 시작 코드
 }
 
+//변하지 않는 UI들은 변수, 함수로 축약해도 상관없음
+var a = SizedBox( //변수로 커스텀위젯 사용
+  child: Text('Hello World!'),
+);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key}); //stless 명령어 : 메인 페이지 셋팅
 
@@ -12,20 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: ShopItem() //커스텀위젯 사용
+        body: a, //커스텀위젯 사용
       ),
     );
   }
 }
 
-class ShopItem extends StatelessWidget {
-  const ShopItem({super.key}); //class : 변수, 함수 보관함
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: Text('Hello World!'),
-    );
-  }
-}
 
