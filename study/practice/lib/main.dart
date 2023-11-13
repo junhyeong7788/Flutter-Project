@@ -12,13 +12,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: Row(
-          children: [
-            Expanded(child: Container(color: Colors.blue)),
-            Container(width: 100, color: Colors.green),
-          ], //Expanded : 박스 하나 넓게 채울때 사용
-        )
+        body: ShopItem() //커스텀위젯 사용
       ),
+    );
+  }
+}
+
+class ShopItem extends StatelessWidget {
+  const ShopItem({super.key}); //class : 변수, 함수 보관함
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Text('Hello World!'),
     );
   }
 }
