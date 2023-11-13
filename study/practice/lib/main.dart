@@ -4,11 +4,6 @@ void main() {
   runApp(const MyApp()); //앱 시작 코드
 }
 
-//변하지 않는 UI들은 변수, 함수로 축약해도 상관없음
-var a = SizedBox( //변수로 커스텀위젯 사용
-  child: Text('Hello World!'),
-);
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key}); //stless 명령어 : 메인 페이지 셋팅
 
@@ -17,10 +12,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: a, //커스텀위젯 사용
+        body: ListView(
+          children: [
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+          ],
+        )
       ),
     );
   }
 }
 
+//ListView : 스크롤바 자동생성, 스크롤 위치감시가능, 메모리절약기능
 
