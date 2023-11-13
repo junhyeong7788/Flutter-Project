@@ -4,20 +4,26 @@ void main() {
   runApp(MyApp()); //앱 시작 코드
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key}); //stless 명령어 : 메인 페이지 셋팅
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   var a = 1;
+//변수와 state는 플러터에서 데이터를 잠깐 저장하는 곳
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
-          child: Text('Add'),
+          child: Text(a.toString()), //앱에 기능 추가
           onPressed: (){
-            print(a);
-            a++;
+            setState(() {
+              a++;
+            });
           },
         ),
         appBar: AppBar(),
