@@ -8,7 +8,7 @@ void main() {
   );
 }
 
-var titleUI = AppBar(title: Text("contact"));
+//var titleUI = AppBar(title: Text("contact"));
 var bottomUI = BottomAppBar(
   height: 50,
     child: Row(
@@ -30,13 +30,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  var a = 3;
+  var total = 3;
   var name = ['치킨집', '피자집', '샤브집'];
+
+  addOne(){ //state변수 함수 선언
+    setState(() {
+      total++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: titleUI,
+      appBar: AppBar(title: Text(total.toString()), ),
       body: ListView.builder(
         itemCount: 3,
         itemBuilder: (c, i){
@@ -50,7 +56,7 @@ class _MyAppState extends State<MyApp> {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           showDialog(context: context, builder: (context){
-            return DialogUI(state : a); // (작명 : 변수명)/ 전송
+            return DialogUI( addOne : addOne ); // (작명 : 변수명)/ 전송
           });
         },
       )
@@ -58,15 +64,10 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class DialogUI extends StatefulWidget {
-  const DialogUI({Key? key, this.state}) : super(key: key);
-  final state; //등록
+class DialogUI extends StatelessWidget { //stful이 아니라 stless를 써야함, 같은 클래스 안에 있어야지 변수 입력가능
+  const DialogUI({Key? key, this.addOne}) : super(key: key); //함수등록
+  final addOne; //변수등록
 
-  @override
-  State<DialogUI> createState() => _DialogUIState();
-}
-
-class _DialogUIState extends State<DialogUI> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -76,7 +77,7 @@ class _DialogUIState extends State<DialogUI> {
         child: Column(
           children: [
             TextField(),
-            TextButton(child: Text('완료'), onPressed: (){} ), //state 변수 입력이 안됨
+            TextButton(child: Text('완료'), onPressed: (){ addOne();} ), //같은 클래스 안에 있어야함
             TextButton(
               child: Text("취소"),
               onPressed: (){Navigator.pop(context);}
