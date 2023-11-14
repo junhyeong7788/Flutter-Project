@@ -8,41 +8,82 @@ void main() {
   );
 }
 
+var titleUI = AppBar(title: Text("contact"));
+var bottomUI = BottomAppBar(
+  height: 50,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: const [
+        Icon(Icons.phone),
+        Icon(Icons.message),
+        Icon(Icons.contact_page),
+      ],
+    ),
+);
+
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
-  var name = ['박준형', '박형준'];
+
+  var a = 3;
+  var name = ['치킨집', '피자집', '샤브집'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: Text(a.toString()), //앱에 기능 추가
-          onPressed: (){
-            showDialog(context: context, builder: (context){
-              return Dialog(child: Text('Hello'));
-            });
-          },
-        ),
-        appBar: AppBar(),
-        body: ListView.builder(
-          itemCount: 2,
-          itemBuilder: (c, i){
-            return ListTile(
-              leading: Image.asset('profile.png'),
-              title: Text(name[i]),
-            );
-          },
-        )
-      );
+      appBar: titleUI,
+      body: ListView.builder(
+        itemCount: 3,
+        itemBuilder: (c, i){
+          return ListTile(
+            leading: Image.asset('profile.png'),
+            title: Text(name[i]),
+          );
+        }
+      ),
+        bottomNavigationBar: bottomUI,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          showDialog(context: context, builder: (context){
+            return DialogUI(state : a); // (작명 : 변수명)/ 전송
+          });
+        },
+      )
+    );
   }
 }
 
-//ListView.bilder() : 자동으로 반복해주는 함수
-//itemBuilder(context, index) : 각각의 아이템을 표현하는 함수
-//context : 부모위젯의 정보를 담고 있는 변수일뿐
+class DialogUI extends StatefulWidget {
+  const DialogUI({Key? key, this.state}) : super(key: key);
+  final state; //등록
+
+  @override
+  State<DialogUI> createState() => _DialogUIState();
+}
+
+class _DialogUIState extends State<DialogUI> {
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: SizedBox(
+        width: 300,
+        height: 300,
+        child: Column(
+          children: [
+            TextField(),
+            TextButton(child: Text('완료'), onPressed: (){} ), //state 변수 입력이 안됨
+            TextButton(
+              child: Text("취소"),
+              onPressed: (){Navigator.pop(context);}
+            )
+          ],
+        )
+      )
+    );
+  }
+}
