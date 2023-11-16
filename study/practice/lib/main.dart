@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(
@@ -30,8 +31,24 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  getPermission() async {
+    var status = await Permission.contacts.status; //연락처 권한 확인, await : 다음줄 실행안하고 기다려줌
+    if (status.isGranted) {
+      print('허락됨'); //허락하면 실행
+    } else if (status.isDenied) {
+      print('거절됨'); //거절하면 실행
+      Permission.contacts.request(); //팝업창 띄우는 코드
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getPermission();
+  }
+
   var total = 3;
-  var name = ['치킨집', '피자집', '샤브집'];
+  var name = ['치킨집', '피자집', '샤브집기'];
 
   //부모 state를 자식이 수정하려면 1. 수정함수 만들기. 2. 자식에게 보내기.
   addName(a){ //이름추가 함수
@@ -54,7 +71,7 @@ class _MyAppState extends State<MyApp> {
         itemCount: name.length, //name변수의 길이만큼 변수안에 추가
         itemBuilder: (c, i){
           return ListTile(
-            leading: Image.asset('profile.png', width: 50, height: 50),
+            leading: Image.asset('assets/profile.png', width: 50, height: 50),
             title: Text(name[i]),
           );
         }
